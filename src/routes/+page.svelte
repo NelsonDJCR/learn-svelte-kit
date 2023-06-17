@@ -1,5 +1,9 @@
+<script>
+	import { users } from '../stores/userStore';
+</script>
+
 <svelte:head>
-    <title>Home</title>
+	<title>Home</title>
 </svelte:head>
 
 <div class="flex flex-col items-center">
@@ -15,3 +19,9 @@
 		<h1 class="bg-red">API</h1>
 	</div>
 </div>
+
+{#each $users as item}
+    <h1>{item.name}</h1>
+{:else}
+    There arent records
+{/each}
