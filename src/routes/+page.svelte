@@ -1,5 +1,6 @@
 <script>
 	import { users } from '../stores/userStore';
+	import Card from '../componets/Card.svelte';
 </script>
 
 <svelte:head>
@@ -20,8 +21,10 @@
 	</div>
 </div>
 
-{#each $users as item}
-    <h1>{item.name}</h1>
-{:else}
-    There arent records
-{/each}
+<div class="p-5 grid gap-5 md:grid-cols-3">
+	{#each $users as user}
+		<Card {user} />
+	{:else}
+		There arent records
+	{/each}
+</div>
