@@ -2,6 +2,9 @@
 	import '../app.css';
 	import Nav from '../componets/Nav.svelte';
 </script>
+
 <Nav />
-<slot />
-<h1 class="w-100 bg-red-100 text-center">a</h1>
+
+<div class="max-w-6xl p2 mx-auto ">
+	<slot />
+</div>
