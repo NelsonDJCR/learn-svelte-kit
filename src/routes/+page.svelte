@@ -1,6 +1,16 @@
 <script>
 	import { users } from '../stores/userStore';
 	import Card from '../componets/Card.svelte';
+	let search = '';
+	let filter = [];
+
+	$: {
+		if (search) {
+			filter = $users.filter((user) => user.name.toLowerCase().includes(search.toLowerCase()));
+		} else {
+			filter = [...$users];
+		}
+	}
 </script>
 
 <svelte:head>
@@ -20,9 +30,14 @@
 		<h1 class="bg-red">API</h1>
 	</div>
 </div>
-
+<input
+	type="text"
+	class="w-full rounded-md text-lg p-4 border-2 my-2"
+	bind:value={search}
+	placeholder="Gustavo, Pedro, etc..."
+/>
 <div class="p-5 grid gap-5 md:grid-cols-3">
-	{#each $users as user}
+	{#each filter as user}
 		<Card {user} />
 	{:else}
 		There arent records
