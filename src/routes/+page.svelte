@@ -1,5 +1,5 @@
 <script>
-	import { users } from '../stores/userStore';
+	import { users } from '../stores/usersStore';
 	import Card from '../componets/Card.svelte';
 	let search = '';
 	let filter = [];
