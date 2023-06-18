@@ -2,13 +2,13 @@ import { writable } from 'svelte/store'
 export const users = writable([]);
 
 const fectchUser = async () => {
-    const url = await fetch('https://reqres.in/api/users')
+    const url = await fetch('https://rickandmortyapi.com/api/character')
     const data = await url.json()
-    const loadUsers = data.data.map((data, index) => {
+    const loadUsers = data.results.map((data, index) => {
         return {
             id: data.id,
-            name: data.first_name,
-            avatar: data.avatar,
+            name: data.name,
+            avatar: data.image,
         }
     })
     users.set(loadUsers)
