@@ -38,6 +38,9 @@ export const actions = {
             email, id
         }
         emails.push(newEmail)
+
+        throw redirect(300, '/')
+
     },
     delete: async ({ request }) => {
         const data = await request.formData()
